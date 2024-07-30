@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,10 +24,62 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+.dark {
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* BarsLoader classes */
+.spinner_7uc5 {
+  animation: spinner_3l8F 0.9s linear infinite;
+  animation-delay: -0.9s;
+}
+.spinner_RibN {
+  animation-delay: -0.7s;
+}
+.spinner_ZAxd {
+  animation-delay: -0.5s;
+}
+@keyframes spinner_3l8F {
+  0%,
+  66.66% {
+    animation-timing-function: cubic-bezier(0.14, 0.73, 0.34, 1);
+    y: 6px;
+    height: 12px;
+  }
+  33.33% {
+    animation-timing-function: cubic-bezier(0.65, 0.26, 0.82, 0.45);
+    y: 1px;
+    height: 22px;
+  }
+}
+
+/* PulseLoader classes */
+.spinner_Uvk8 {
+  animation: spinner_otJF 1.6s cubic-bezier(0.52, 0.6, 0.25, 0.99) infinite;
+}
+.spinner_ypeD {
+  animation-delay: 0.2s;
+}
+.spinner_y0Rj {
+  animation-delay: 0.4s;
+}
+@keyframes spinner_otJF {
+  0% {
+    transform: translate(12px, 12px) scale(0);
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
   }
 }
