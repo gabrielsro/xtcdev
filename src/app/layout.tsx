@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { BackgroundBeams } from "@/ui/effects/background-beams";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark`}>
-        <main className="min-h-screen">{children}</main>
+      <body className={`${inter.className} dark `}>
+        <BackgroundBeams className="h-screen w-screen" />
+        <main className="min-h-screen w-screen">{children}</main>
       </body>
     </html>
   );
