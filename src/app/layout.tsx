@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark `}>
+      <body className={`${inter.className} dark relative`}>
         <BackgroundBeams className="h-screen w-screen" />
-        <main className="min-h-screen w-screen">{children}</main>
+        <main className="min-h-screen w-screen absolute">{children}</main>
       </body>
     </html>
   );
