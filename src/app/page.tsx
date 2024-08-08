@@ -1,14 +1,25 @@
+import {
+  TypewriterEffect,
+  TypewriterEffectSmooth,
+} from "@/ui/effects/typewriter-effect";
 import World from "@/ui/effects/world";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-between pt-16 md:pt-20 pb-60">
+    <div className="flex flex-col items-center pt-20">
       <div className="text-teal-300 text-5xl font-semibold">XTCDEV</div>
-      <div className="flex items-center gap-2">
-        <p className="whitespace-nowrap">Website under construction</p>
+      <div className="py-20">
+        <TypewriterEffect
+          words={[
+            { text: "Get" },
+            { text: "your", className: "text-green-200 " },
+            { text: "own", className: "text-green-200" },
+            { text: "website" },
+            { text: "today." },
+          ]}
+        />
       </div>
-
-      <div className=" lg:flex lg:items-center pt-14 md:pt-0 relative">
+      <div className="relative">
         <World />
         <div className="absolute top-40 right-0">
           <p>+1 4632398161</p>
