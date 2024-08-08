@@ -6,6 +6,7 @@ import TopNav from "./_components/topnav";
 import BottomNav from "./_components/bottomnav";
 import { StarsBackground } from "@/ui/effects/stars-background";
 import { ShootingStars } from "@/ui/effects/shooting-stars";
+import { World } from "@/ui/effects/globe";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,7 @@ export default function RootLayout({
             />
             <main className="relative">{children}</main>
           </div>
-          <BottomNav />
+          {/* <BottomNav /> */}
         </div>
       </body>
     </html>
