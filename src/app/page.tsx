@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <div className="relative">
         <div className="w-screen min-h-[320px] md:w-[550px] md:h-[550px]">
-          <World />
+          {/* <World /> */}
         </div>
         <div className="absolute top-40 right-0">
           <p>+1 4632398161</p>
