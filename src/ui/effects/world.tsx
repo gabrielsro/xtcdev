@@ -397,5 +397,7 @@ export default function World() {
     },
   ];
 
+  setTimeout(() => {}, 1);
+
   return <WorldEffect data={sampleArcs} globeConfig={globeConfig} />;
 }
