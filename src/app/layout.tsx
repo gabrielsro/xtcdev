@@ -7,8 +7,9 @@ import BottomNav from "./_components/bottomnav";
 import { StarsBackground } from "@/ui/effects/stars-background";
 import { ShootingStars } from "@/ui/effects/shooting-stars";
 import { World } from "@/ui/effects/globe";
-import {PHProvider} from "./_analytics/providers"
+import { PHProvider } from "./_analytics/providers";
 import dynamic from "next/dynamic";
+import Footer from "./_components/footer";
 
 const PostHogPageView = dynamic(() => import("./_analytics/PostHogPageView"), {
   ssr: false,
@@ -29,21 +30,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <PHProvider>
-      <body className={`${inter.className} dark relative`}>
-        <PostHogPageView/>
-        <div className="relative h-screen grid grid-rows-[auto,1fr]">
-          <TopNav />
-          <div className="relative min-h-full overflow-y-scroll">
-            <StarsBackground className="h-screen fixed" starDensity={0.0003} />
-            <ShootingStars
-              maxDelay={4300}
-              className="w-screen h-screen fixed"
-            />
-            <main className="relative">{children}</main>
+        <body className={`${inter.className} dark relative`}>
+          <PostHogPageView />
+          <div className="relative h-screen grid grid-rows-[auto,1fr]">
+            <TopNav />
+            <div className="relative min-h-full overflow-y-scroll flex flex-col">
+              <StarsBackground
+                className="h-screen fixed"
+                starDensity={0.0003}
+              />
+              <ShootingStars
+                maxDelay={4300}
+                className="w-screen h-screen fixed"
+              />
+              <main className="relative flex-grow">{children}</main>
+              <Footer />
+            </div>
           </div>
-          {/* <BottomNav /> */}
-        </div>
-      </body>
+        </body>
       </PHProvider>
     </html>
   );
