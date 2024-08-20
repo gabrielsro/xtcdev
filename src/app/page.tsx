@@ -27,7 +27,7 @@ export default function Home() {
           <img src="/icons/phone1.svg" alt="Phone" className="w-6 h-6" />
           <p>+1 (463) 239-8161</p>
           <img src="/icons/email1.svg" alt="Email" className="w-6 h-6" />
-          <p>xtcdev@gmail.com</p>
+          <p>contact@xtcdev.com</p>
         </div>
       </div>
     </div>
