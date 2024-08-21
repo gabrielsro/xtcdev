@@ -10,6 +10,7 @@ import { World } from "@/ui/effects/globe";
 import { PHProvider } from "./_analytics/providers";
 import dynamic from "next/dynamic";
 import Footer from "./_components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const PostHogPageView = dynamic(() => import("./_analytics/PostHogPageView"), {
   ssr: false,
@@ -46,6 +47,7 @@ export default function RootLayout({
               <main className="relative flex-grow">{children}</main>
               <Footer />
             </div>
+            <Toaster />
           </div>
         </body>
       </PHProvider>

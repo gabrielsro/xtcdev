@@ -5,6 +5,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { useState, useEffect } from "react";
 import { handleContactMessage } from "@/lib/actions";
 import RingLoader from "@/ui/loaders/ringLoader";
+import { toast } from "sonner";
 
 function SubmitButton() {
   const data = useFormStatus();
@@ -48,6 +49,7 @@ export default function ContactForm() {
         });
         console.log("Form state:");
         console.log(formState);
+        toast.success("Message submitted!");
       }
     }
   }, [finalState.processed]);
