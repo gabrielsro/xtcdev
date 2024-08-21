@@ -35,12 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# MANAGEMENT
-
-# Domain Registrar (Porkbun)
-# Price: 10.37 USD / year
-
-# Email hosting (Porkbun)
-# Price: 24 USD / year
-
-# Analytics (Posthog)
+# Extra
+details.txt

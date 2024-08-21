@@ -1,0 +1,13 @@
+# Domain Registrar (Porkbun)
+# Price: 10.37 USD / year
+
+# Email hosting (Porkbun)
+# Price: 24 USD / year
+
+# Transactional Email (Resend)
+# Daily limit: 100
+# Monthly limit: 3000
+
+# Analytics (Posthog)
+
+

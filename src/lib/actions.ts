@@ -45,9 +45,10 @@ export async function handleContactMessage(
   previousState.errors = { name: [], email: [], message: [] };
   try {
     const { data, error } = await resend.emails.send({
-      from: "XTCDEV <contact@xtcdev.com>",
+      from: `${rawFormData.name} <contact@xtcdev.com>`,
       to: ["contact@xtcdev.com"],
-      subject: "New contact message",
+      subject: "XTCDEV contact message",
+      replyTo: `${rawFormData.email}`,
       react: FromContactTemplate({
         email: `${rawFormData.email}`,
         message: `${rawFormData.message}`,
