@@ -1,31 +1,17 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 import { useState, useEffect } from "react";
 import { handleContactMessage } from "@/lib/actions";
-import RingLoader from "@/ui/loaders/ringLoader";
 import { toast } from "sonner";
-
-function SubmitButton() {
-  const data = useFormStatus();
-  console.log(data);
-  if (data.pending) {
-    return (
-      <Button disabled className="flex gap-2">
-        <RingLoader />
-        Loading...
-      </Button>
-    );
-  }
-  return <Button>Submit</Button>;
-}
+import clsx from "clsx";
+import { SubmitButton } from "./submit-button";
 
 export default function ContactForm() {
   const [formState, setFormState] = useState({
-    name: { value: "", errors: [] },
-    email: { value: "", errors: [] },
-    message: { value: "", errors: [] },
+    name: { value: "" },
+    email: { value: "" },
+    message: { value: "" },
   });
 
   const [finalState, formAction] = useFormState(
@@ -36,20 +22,17 @@ export default function ContactForm() {
   useEffect(() => {
     console.log("effect");
     if (finalState.processed) {
-      console.log("processed");
       delete finalState.processed;
-      const finalEntries = Object.entries(finalState);
-      console.log(finalEntries);
-      if (finalEntries.every((e: any) => e[1].errors.length < 1)) {
-        console.log("no errors");
-        setFormState({
-          name: { value: "", errors: [] },
-          email: { value: "", errors: [] },
-          message: { value: "", errors: [] },
-        });
-        console.log("Form state:");
-        console.log(formState);
+      if (finalState.sent) {
         toast.success("Message submitted!");
+        setFormState({
+          name: { value: "" },
+          email: { value: "" },
+          message: { value: "" },
+        });
+      }
+      if (!finalState.sent) {
+        toast.error("There was an error. Please try again later");
       }
     }
   }, [finalState.processed]);
@@ -60,6 +43,7 @@ export default function ContactForm() {
       <input
         name="name"
         type="text"
+        required
         placeholder="Name"
         value={formState.name.value}
         onChange={(e) => {
@@ -67,11 +51,15 @@ export default function ContactForm() {
           newState.name.value = e.target.value;
           setFormState(newState);
         }}
-        className="bg-black border-white border-[1px] rounded-sm px-1"
+        className={clsx(
+          "bg-black border-white border-[1px] rounded-sm px-1",
+          finalState.errors?.name.length > 0 && "border-red-400"
+        )}
       />
       <input
         name="email"
         type="email"
+        required
         placeholder="Email"
         value={formState.email.value}
         onChange={(e) => {
@@ -79,11 +67,15 @@ export default function ContactForm() {
           newState.email.value = e.target.value;
           setFormState(newState);
         }}
-        className="bg-black border-white border-[1px] rounded-sm px-1"
+        className={clsx(
+          "bg-black border-white border-[1px] rounded-sm px-1",
+          finalState.errors?.email.length > 0 && "border-red-400"
+        )}
       />
       <textarea
         name="message"
         id="message"
+        required
         placeholder="Your message..."
         rows={5}
         value={formState.message.value}
@@ -92,7 +84,10 @@ export default function ContactForm() {
           newState.message.value = e.target.value;
           setFormState(newState);
         }}
-        className="bg-black border-white border-[1px] rounded-sm px-1"
+        className={clsx(
+          "bg-black border-white border-[1px] rounded-sm px-1",
+          finalState.errors?.message.length > 0 && "border-red-400"
+        )}
       />
       <SubmitButton />
     </form>

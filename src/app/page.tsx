@@ -2,8 +2,9 @@ import {
   TypewriterEffect,
   TypewriterEffectSmooth,
 } from "@/ui/effects/typewriter-effect";
-import ContactForm from "./_components/contactForm";
+// import ContactForm from "./_components/contactForm";
 import ThreeWorld from "./_components/threeWorld";
+import ContactForm from "./_components/contact-form/contact-form";
 
 export default function Home() {
   return (
