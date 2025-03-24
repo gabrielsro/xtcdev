@@ -1,5 +1,5 @@
 import {
-  TypewriterEffect,
+  // TypewriterEffect,
   TypewriterEffectSmooth,
 } from "@/ui/effects/typewriter-effect";
 // import ContactForm from "./_components/contactForm";
@@ -11,15 +11,17 @@ export default function Home() {
     <div className="flex flex-col items-center pt-20">
       <div className="text-teal-300 text-5xl font-semibold">XTCDEV</div>
       <div className="py-20">
-        {/* <TypewriterEffect
+        <TypewriterEffectSmooth
           words={[
             { text: "Get" },
-            { text: "your", className: "text-green-200 " },
-            { text: "own", className: "text-green-200" },
-            { text: "website" },
-            { text: "today." },
+            { text: "your", className: "text-green-200" },
+            { text: "website", className: "text-green-200" },
+            { text: "how" },
+            { text: "you" },
+            { text: "want" },
+            { text: "it." },
           ]}
-        /> */}
+        />
       </div>
       <div className="flex flex-col place-items-center pb-14 md:flex-row-reverse lg:pb-28 lg:gap-16">
         <ContactForm />

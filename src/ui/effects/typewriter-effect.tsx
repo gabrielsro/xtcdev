@@ -128,7 +128,10 @@ export const TypewriterEffectSmooth = ({
               {word.text.map((char, index) => (
                 <span
                   key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
+                  className={cn(
+                    `dark:text-white text-black text-xl sm:text-4xl`,
+                    word.className
+                  )}
                 >
                   {char}
                 </span>
@@ -180,7 +183,7 @@ export const TypewriterEffectSmooth = ({
           repeatType: "reverse",
         }}
         className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
+          "block rounded-sm w-[4px]  h-6 sm:h-8 xl:h-12 bg-blue-500",
           cursorClassName
         )}
       ></motion.span>

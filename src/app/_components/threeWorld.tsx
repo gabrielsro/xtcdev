@@ -1,6 +1,6 @@
 import World from "@/ui/effects/world";
 
-export default function ThreeWorld() {
+export default async function ThreeWorld() {
   return (
     <div className="relative">
       <div className="w-screen min-h-[320px] md:w-[550px] md:h-[550px]">
