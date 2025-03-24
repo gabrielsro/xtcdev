@@ -22,7 +22,7 @@ export default function HeroEffect() {
       >
         Don&apos;t get left behind. Get the cutting edge technology{" "}
         <Highlight className="text-black dark:text-white">
-          whithout the pain, the hassle and the waiting.
+          without the pain, the hassle and the waiting.
         </Highlight>
       </motion.h1>
     </HeroHighlight>
